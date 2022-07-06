@@ -1,0 +1,18 @@
+plugins {
+    id 'java-gradle-plugin'
+}
+
+// repositories {
+//     // Use the plugin portal to apply community plugins in convention plugins.
+//     gradlePluginPortal()
+// }
+
+gradlePlugin {
+    plugins {
+        create("MyAWSPluginV2") {
+            id = "MyAWSPluginV2"
+            implementationClass = "by.efreet.gradle.MyAWSPluginV2"
+            version = "1.0.0"
+        }
+    }
+}

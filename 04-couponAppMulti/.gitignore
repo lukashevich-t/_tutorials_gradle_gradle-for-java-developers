@@ -1,0 +1,9 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+web/bin/
+data/bin/
+integration/bin/
+services/bin/
+
+# Ignore Gradle build output directory
+build

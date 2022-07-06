@@ -1,0 +1,46 @@
+subprojects {
+    if(it.name == 'web') {
+        return
+    }
+    apply plugin: 'java'
+
+    version = "1.0.1"
+    group= "by.efreet.gradle1"
+
+    repositories {
+        // Use Maven Central for resolving dependencies.
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation 'junit:junit:4.13.2'
+    }
+}
+
+subprojects {
+    task (description: 'printProjectName', group: 'tim', 'printProjectName') {
+        doLast {
+            println project.name
+        }
+    }
+}
+
+// Описание зависимостей в корне работает, только если дать инструкцию "apply plugin 'java' или 'war'" в КОРНЕВОМ build.gradle:
+// project(':web') {
+//     dependencies {
+//         println "root.project.dependencies.it = " + it.class.canonicalName + " " + it
+//         implementation(project(':services'))
+//     }
+// }
+
+// project(':services') {
+//     dependencies {
+//         implementation(project(':data'))
+//     }
+// }
+
+// project(':data') {
+//     dependencies {
+//         implementation(project(':integration'))
+//     }
+// }
